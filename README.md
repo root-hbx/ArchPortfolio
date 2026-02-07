@@ -8,6 +8,10 @@ A personal portfolio website simulating an **Arch Linux + Hyprland** tiling wind
 
 ![Desktop Screenshot](./public/wallpapers/default.png)
 
+> [!IMPORTANT]
+> **This repository is currently under heavy construction.** >
+> We warmly welcome your suggestions and invite you to join our list of contributors!
+
 ## Tech Stack
 
 - **Next.js 14** (App Router) + TypeScript + React 18

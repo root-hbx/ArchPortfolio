@@ -8,6 +8,10 @@
 
 ![桌面截图](./public/wallpapers/default.png)
 
+> [!IMPORTANT]
+> **本仓库正在大力建设中.** >
+> 热切欢迎您的建议，并邀请您加入我们的贡献者名单!
+
 ## 技术栈
 
 - **Next.js 14** (App Router) + TypeScript + React 18
