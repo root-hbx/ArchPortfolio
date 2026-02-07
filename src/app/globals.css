@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gap: 6px;
+  --bar-height: 32px;
+  --border-width: 2px;
+  --border-focused: #1793D1;
+  --border-unfocused: #45475a;
+  --bg-base: #1e1e2e;
+  --bg-mantle: #181825;
+  --bg-crust: #11111b;
+  --text-primary: #cdd6f4;
+  --text-secondary: #a6adc8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-crust);
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  cursor: default;
+  user-select: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-mantle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #45475a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #585b70;
+}
+
+/* Terminal text selection */
+.terminal-content {
+  user-select: text;
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Boot screen green text */
+.boot-ok {
+  color: #a6e3a1;
+}
+
+.boot-info {
+  color: #89b4fa;
+}
+
+.boot-warn {
+  color: #f9e2af;
+}
+
+/* Rofi backdrop blur */
+.rofi-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Split handle cursor */
+.split-handle-h {
+  cursor: col-resize;
+}
+
+.split-handle-v {
+  cursor: row-resize;
+}
+
+/* Floating window resize cursors */
+.resize-nw { cursor: nw-resize; }
+.resize-ne { cursor: ne-resize; }
+.resize-sw { cursor: sw-resize; }
+.resize-se { cursor: se-resize; }
+
+/* Waybar transition */
+.workspace-btn {
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+/* Neofetch ASCII art */
+.neofetch-art {
+  color: #1793D1;
+  white-space: pre;
+  line-height: 1.2;
+}
