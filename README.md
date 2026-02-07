@@ -32,6 +32,8 @@ A personal portfolio website simulating an **Arch Linux + Hyprland** tiling wind
 
 ## Getting Started
 
+**For Users:**
+
 ```bash
 # Clone the repository
 git clone https://github.com/root-hbx/archlinux-web.git
@@ -46,7 +48,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Build
+**How to Build (for developers):**
 
 ```bash
 # Build for production (static export)
@@ -55,7 +57,7 @@ npm run build
 # Output is in the /out directory
 ```
 
-## Keyboard Shortcuts
+## Project Structure
 
 | Shortcut | Action |
 |---|---|
@@ -66,8 +68,6 @@ npm run build
 | `Ctrl + H/J/K/L` | Move focus (vim keys) |
 | `Ctrl + Space` | Toggle float mode |
 | `Ctrl + F` | Toggle fullscreen |
-
-## Project Structure
 
 ```
 src/
@@ -85,6 +85,17 @@ src/
 ├── store/                # Zustand stores
 └── types/
 ```
+
+## Acknowledgements
+
+This project is inspired by:
+
+* [Ubuntu20.04 Web Simu](https://github.com/vivek9patel/vivek9patel.github.io): Web simulation of Ubuntu 20.04, made using NEXT.js & tailwind CSS
+* [Deepin Web Simu](https://github.com/GoodManWEN/GoodManWEN.github.io): Website simulating linux system's GUI, using theme of Deepin distro
+* [Kali Linux Web Simu](https://github.com/Ali-Abo-Alshamlat/ali-abo-alshamlat.github.io): Personal portfolio website of theme Kali Linux, made using NEXT.js & tailwind CSS
+* [Terminal Portfolio](https://github.com/satnaing/terminal-portfolio): Terminal style portfolio website built with React, TypeScript and Styled-Components
+* [Fake Terminal Website](https://github.com/luisbraganca/fake-terminal-website): A fully customizable terminal-like website template
+* [Hacker-Blog](https://github.com/tocttou/hacker-blog): A minimalistic, responsive jekyll theme built for hackers
 
 ## License
 
