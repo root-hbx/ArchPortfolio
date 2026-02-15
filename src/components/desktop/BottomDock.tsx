@@ -68,7 +68,7 @@ export default function BottomDock() {
             title={item.label}
           >
             {item.icon}
-            <span className="text-[9px] leading-none">{item.label}</span>
+            <span className="text-[0.5625rem] leading-none">{item.label}</span>
           </button>
         ))}
       </div>

@@ -11,12 +11,19 @@ import { Phase } from '@/types'
 export default function Home() {
   const bootCompleted = useDesktopStore((s) => s.bootCompleted)
   const setBootCompleted = useDesktopStore((s) => s.setBootCompleted)
+  const bootFontSize = useDesktopStore((s) => s.bootFontSize)
+  const desktopFontSize = useDesktopStore((s) => s.desktopFontSize)
   const [phase, setPhase] = useState<Phase>('boot')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  useEffect(() => {
+    const size = phase === 'desktop' ? desktopFontSize : bootFontSize
+    document.documentElement.style.fontSize = `${size}px`
+  }, [phase, bootFontSize, desktopFontSize])
 
   const handleBootComplete = useCallback(() => {
     setBootCompleted()

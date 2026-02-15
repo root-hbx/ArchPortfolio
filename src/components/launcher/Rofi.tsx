@@ -98,7 +98,7 @@ export default function Rofi() {
               <div>
                 <div className={i === selectedIndex ? 'text-ctp-text' : ''}>{app.title}</div>
                 {app.shortcut && (
-                  <div className="text-[10px] text-ctp-overlay0">{app.shortcut}</div>
+                  <div className="text-[0.625rem] text-ctp-overlay0">{app.shortcut}</div>
                 )}
               </div>
             </button>

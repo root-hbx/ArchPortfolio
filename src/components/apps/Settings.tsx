@@ -4,11 +4,14 @@ import { useDesktopStore } from '@/store/desktopStore'
 import { themes } from '@/lib/themes'
 import { ThemeId } from '@/types'
 
-const wallpapers = [
-  { id: 'default', path: '/wallpapers/arch-default.svg', label: 'Arch Default' },
-  { id: 'dark', path: '/wallpapers/arch-dark.svg', label: 'Arch Dark' },
-  { id: 'minimal', path: '/wallpapers/arch-minimal.svg', label: 'Arch Minimal' },
-]
+const wallpapers: Record<string, string> = {
+  'Arch Black Default': '/wallpapers/arch-default.svg',
+  'Arch White Default': '/wallpapers/arch-default.png',
+  'Arch Dark': '/wallpapers/arch-dark.svg',
+  'Arch Minimal': '/wallpapers/arch-minimal.svg',
+  'Arch Blue': '/wallpapers/arch-blue.png',
+  'Arch Mont': '/wallpapers/arch-mont.png',
+}
 
 const shortcuts = [
   { key: 'Ctrl + Enter', action: 'New terminal' },
@@ -25,6 +28,10 @@ export default function Settings() {
   const wallpaper = useDesktopStore((s) => s.wallpaper)
   const setTheme = useDesktopStore((s) => s.setTheme)
   const setWallpaper = useDesktopStore((s) => s.setWallpaper)
+  const bootFontSize = useDesktopStore((s) => s.bootFontSize)
+  const desktopFontSize = useDesktopStore((s) => s.desktopFontSize)
+  const setBootFontSize = useDesktopStore((s) => s.setBootFontSize)
+  const setDesktopFontSize = useDesktopStore((s) => s.setDesktopFontSize)
 
   return (
     <div className="w-full h-full bg-ctp-base text-ctp-text overflow-y-auto p-6 text-sm">
@@ -38,11 +45,10 @@ export default function Settings() {
             <button
               key={theme.id}
               onClick={() => setTheme(theme.id as ThemeId)}
-              className={`flex flex-col items-center gap-2 p-3 rounded border transition-colors ${
-                themeId === theme.id
-                  ? 'border-arch-blue bg-ctp-surface0'
-                  : 'border-ctp-surface0 hover:border-ctp-surface1'
-              }`}
+              className={`flex flex-col items-center gap-2 p-3 rounded border transition-colors ${themeId === theme.id
+                ? 'border-arch-blue bg-ctp-surface0'
+                : 'border-ctp-surface0 hover:border-ctp-surface1'
+                }`}
             >
               <div className="flex gap-1">
                 <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: theme.colors.base }} />
@@ -59,31 +65,71 @@ export default function Settings() {
       {/* Wallpaper */}
       <section className="mb-6">
         <h2 className="text-sm font-bold text-ctp-mauve mb-3">Wallpaper</h2>
-        <div className="grid grid-cols-3 gap-3">
-          {wallpapers.map((wp) => (
+        <div className="flex flex-col gap-1">
+          {Object.entries(wallpapers).map(([label, path]) => (
             <button
-              key={wp.id}
-              onClick={() => setWallpaper(wp.path)}
-              className={`aspect-video rounded border overflow-hidden transition-all ${
-                wallpaper === wp.path
-                  ? 'border-arch-blue ring-1 ring-arch-blue'
-                  : 'border-ctp-surface0 hover:border-ctp-surface1'
-              }`}
+              key={path}
+              onClick={() => setWallpaper(path)}
+              className={`flex items-center justify-between px-3 py-2 rounded border transition-colors text-left ${wallpaper === path
+                ? 'border-arch-blue bg-ctp-surface0'
+                : 'border-transparent hover:bg-ctp-surface0'
+                }`}
             >
-              <div
-                className="w-full h-full flex items-center justify-center text-xs text-ctp-overlay0"
-                style={{
-                  background: wp.id === 'default'
-                    ? 'linear-gradient(135deg, #1e1e2e, #181825)'
-                    : wp.id === 'dark'
-                    ? 'linear-gradient(135deg, #11111b, #181825)'
-                    : 'linear-gradient(135deg, #1e1e2e, #313244)',
-                }}
-              >
-                {wp.label}
-              </div>
+              <span className={`text-xs ${wallpaper === path ? 'text-arch-blue' : 'text-ctp-text'}`}>
+                {label}
+              </span>
+              <span className="text-xs text-ctp-overlay0 ml-4 truncate">{path}</span>
             </button>
           ))}
+        </div>
+      </section>
+
+      {/* Font Size */}
+      <section className="mb-6">
+        <h2 className="text-sm font-bold text-ctp-mauve mb-3">Font Size</h2>
+
+        <div className="mb-4">
+          <div className="flex items-center justify-between mb-1">
+            <label className="text-xs text-ctp-subtext0">Boot / Login Screen</label>
+            <span className="text-xs text-ctp-text">{bootFontSize}px</span>
+          </div>
+          <input
+            type="range"
+            min={16}
+            max={32}
+            step={1}
+            value={bootFontSize}
+            onChange={(e) => setBootFontSize(Number(e.target.value))}
+            className="w-full"
+            style={{ accentColor: '#1793D1' }}
+          />
+          <div className="flex justify-between text-[0.625rem] text-ctp-overlay0 mt-0.5">
+            <span>16px</span>
+            <span>24px (default)</span>
+            <span>32px</span>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex items-center justify-between mb-1">
+            <label className="text-xs text-ctp-subtext0">Desktop / Apps</label>
+            <span className="text-xs text-ctp-text">{desktopFontSize}px</span>
+          </div>
+          <input
+            type="range"
+            min={16}
+            max={32}
+            step={1}
+            value={desktopFontSize}
+            onChange={(e) => setDesktopFontSize(Number(e.target.value))}
+            className="w-full"
+            style={{ accentColor: '#1793D1' }}
+          />
+          <div className="flex justify-between text-[0.625rem] text-ctp-overlay0 mt-0.5">
+            <span>16px</span>
+            <span>24px (default)</span>
+            <span>32px</span>
+          </div>
         </div>
       </section>
 

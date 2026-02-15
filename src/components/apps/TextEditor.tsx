@@ -31,7 +31,7 @@ export default function TextEditor({ windowId, initialContent, filename }: TextE
   const fname = filename || '[No Name]'
 
   return (
-    <div className="w-full h-full bg-ctp-base text-ctp-text flex flex-col text-[13px] overflow-hidden">
+    <div className="w-full h-full bg-ctp-base text-ctp-text flex flex-col text-[0.8125rem] overflow-hidden">
       {/* Editor content */}
       <div className="flex-1 overflow-y-auto">
         <div className="flex">

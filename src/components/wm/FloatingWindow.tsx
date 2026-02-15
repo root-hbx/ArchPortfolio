@@ -98,7 +98,7 @@ export default function FloatingWindow({ windowId }: FloatingWindowProps) {
         className="h-6 bg-ctp-mantle flex items-center justify-between px-2 cursor-move select-none"
         onMouseDown={handleTitleMouseDown}
       >
-        <span className="text-[10px] text-ctp-subtext0 truncate">{win.title}</span>
+        <span className="text-[0.625rem] text-ctp-subtext0 truncate">{win.title}</span>
         <button
           className="text-ctp-overlay0 hover:text-ctp-red text-xs leading-none"
           onClick={(e) => {

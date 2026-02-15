@@ -37,54 +37,84 @@ export default function LoginScreen({ onComplete }: LoginScreenProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
+      onMouseDown={() => {
+        setTimeout(() => inputRef.current?.focus(), 0)
+      }}
     >
       <div className="text-sm space-y-1 max-w-xl">
         <div className="text-ctp-text mb-4">
           <pre className="text-arch-blue text-xs leading-tight">{`
-    /\\
-   /  \\
-  /\\   \\
- /      \\
-/   ,,   \\
-/   |  |  -\\
-/_-''    ''-_\\
+                  /#\\
+                 /###\\
+                /#####\\
+               /#######\\
+              _ "=######\\
+             /##=,_\\#####\\
+            /#############\\
+           /###############\\
+          /#################\\
+         /###################\\
+        /########*"""*########\\
+       /#######/       \\#######\\
+      /########         ########\\
+     /#########         ######m=,_
+    /##########         ##########\\
+   /######***             ***######\\
+  /###**                       **###\\
+ /**                               **\\\\
 `}</pre>
         </div>
-        <div className="text-ctp-subtext0 mb-2">Arch Linux 6.12.4-arch1-1 (tty1)</div>
+        <div className="text-ctp-subtext0 mb-2">Hello Visitors ^_^</div>
+        <div className="text-ctp-subtext0 mb-2">Welcome to Boxuan Hu's Website</div>
+        <br></br>
         <div className="mb-4" />
 
-        <div className="flex items-center gap-0">
-          <span className="text-ctp-text">archlinux login: </span>
+        <div className="flex items-center">
+          <span className="text-ctp-text whitespace-nowrap">visitor login:&nbsp;</span>
           {stage === 'username' ? (
-            <input
-              ref={inputRef}
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              onKeyDown={handleKeyDown}
-              className="bg-transparent outline-none text-ctp-green caret-ctp-green flex-1"
-              autoFocus
-              spellCheck={false}
-            />
+            <div className="relative flex-1">
+              <input
+                ref={inputRef}
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                onKeyDown={handleKeyDown}
+                className="bg-transparent outline-none text-ctp-green caret-ctp-green w-full relative z-10"
+                autoFocus
+                spellCheck={false}
+              />
+              {!username && (
+                <span className="absolute left-0 top-0 text-ctp-surface2 opacity-60 pointer-events-none whitespace-nowrap">
+                  Please type anything you like to start
+                </span>
+              )}
+            </div>
           ) : (
             <span className="text-ctp-green">{username}</span>
           )}
         </div>
 
         {(stage === 'password' || stage === 'logging-in') && (
-          <div className="flex items-center gap-0">
-            <span className="text-ctp-text">Password: </span>
+          <div className="flex items-center">
+            <span className="text-ctp-text whitespace-nowrap">Password:&nbsp;</span>
             {stage === 'password' ? (
-              <input
-                ref={inputRef}
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onKeyDown={handleKeyDown}
-                className="bg-transparent outline-none text-ctp-text caret-ctp-text flex-1"
-                autoFocus
-                spellCheck={false}
-              />
+              <div className="relative flex-1">
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  className="bg-transparent outline-none text-ctp-text caret-ctp-text w-full relative z-10"
+                  autoFocus
+                  spellCheck={false}
+                />
+                {!password && (
+                  <span className="absolute left-0 top-0 text-ctp-surface2 opacity-60 pointer-events-none whitespace-nowrap">
+                    Please type anything you like to start
+                  </span>
+                )}
+              </div>
             ) : null}
           </div>
         )}

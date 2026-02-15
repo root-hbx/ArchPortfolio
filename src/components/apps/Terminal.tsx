@@ -200,7 +200,7 @@ export default function Terminal({ windowId }: TerminalProps) {
 
   return (
     <div
-      className="w-full h-full bg-ctp-base text-ctp-text text-[13px] leading-[1.4] overflow-hidden flex flex-col"
+      className="w-full h-full bg-ctp-base text-ctp-text text-[0.8125rem] leading-[1.4] overflow-hidden flex flex-col"
       onClick={() => inputRef.current?.focus()}
     >
       <div ref={scrollRef} className="flex-1 overflow-y-auto p-2 terminal-content">
