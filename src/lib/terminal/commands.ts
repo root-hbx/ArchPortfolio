@@ -127,7 +127,7 @@ operations:
 
 function cmdOpen(args: string[], openApp: (appId: string) => void): CommandResult {
   if (args.length === 0) {
-    return { output: 'Usage: open <app>\nApps: terminal, files, neovim, chrome, about, settings, sysmonitor' }
+    return { output: 'Usage: open <app>\nApps: terminal, files, neovim, chrome, settings, sysmonitor' }
   }
 
   const appMap: Record<string, string> = {
@@ -144,7 +144,6 @@ function cmdOpen(args: string[], openApp: (appId: string) => void): CommandResul
     'google-chrome': 'browser',
     firefox: 'browser',
     browser: 'browser',
-    about: 'about',
     settings: 'settings',
     sysmonitor: 'sysmonitor',
     htop: 'sysmonitor',

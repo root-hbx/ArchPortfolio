@@ -65,7 +65,7 @@ export default function LoginScreen({ onComplete }: LoginScreenProps) {
 `}</pre>
         </div>
         <div className="text-ctp-subtext0 mb-2">Hello Visitors ^_^</div>
-        <div className="text-ctp-subtext0 mb-2">Welcome to Boxuan Hu's Website</div>
+        <div className="text-ctp-subtext0 mb-2">Welcome to Boxuan Hu&apos;s Website</div>
         <br></br>
         <div className="mb-4" />
 

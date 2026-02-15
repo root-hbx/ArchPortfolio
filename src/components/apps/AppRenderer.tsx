@@ -6,7 +6,7 @@ const Terminal = dynamic(() => import('./Terminal'), { ssr: false })
 const FileManager = dynamic(() => import('./FileManager'), { ssr: false })
 const TextEditor = dynamic(() => import('./TextEditor'), { ssr: false })
 const Browser = dynamic(() => import('./Browser'), { ssr: false })
-const About = dynamic(() => import('./About'), { ssr: false })
+const MarkdownViewer = dynamic(() => import('./MarkdownViewer'), { ssr: false })
 const Settings = dynamic(() => import('./Settings'), { ssr: false })
 const SystemMonitor = dynamic(() => import('./SystemMonitor'), { ssr: false })
 
@@ -25,8 +25,8 @@ export default function AppRenderer({ appId, windowId }: AppRendererProps) {
       return <TextEditor windowId={windowId} />
     case 'browser':
       return <Browser windowId={windowId} />
-    case 'about':
-      return <About />
+    case 'markdownviewer':
+      return <MarkdownViewer windowId={windowId} />
     case 'settings':
       return <Settings />
     case 'sysmonitor':

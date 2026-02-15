@@ -16,7 +16,7 @@ function file(name: string, content: string): FSNode {
 export const filesystem: FSNode = dir('/', {
   home: dir('home', {
     boxuan: dir('boxuan', {
-      Documents: dir('Documents', {
+      Resumes: dir('Resumes', {
         'resume.md': file('resume.md', `# Boxuan Hu
 
 ## Education
@@ -69,119 +69,16 @@ Computer systems and networks
 - ORCID: orcid.org
 `),
       }),
-      Projects: dir('Projects', {
-        'archlinux-web': file('archlinux-web', 'Arch Linux desktop simulation personal homepage - Next.js + React + TypeScript'),
-        'geek-bxhu-page': file('geek-bxhu-page', 'Previous personal homepage built with Next.js'),
-        'dotfiles': file('dotfiles', 'Personal configuration files for Arch Linux + Hyprland setup'),
-      }),
-      Downloads: dir('Downloads', {}),
       Pictures: dir('Pictures', {
-        'wallpapers': dir('wallpapers', {}),
+        'arch-default.svg': file('arch-default.svg', '[image: arch-default.svg]'),
+        'arch-default.png': file('arch-default.png', '[image: arch-default.png]'),
+        'arch-dark.svg': file('arch-dark.svg', '[image: arch-dark.svg]'),
+        'arch-minimal.svg': file('arch-minimal.svg', '[image: arch-minimal.svg]'),
+        'arch-blue.png': file('arch-blue.png', '[image: arch-blue.png]'),
+        'arch-mont.png': file('arch-mont.png', '[image: arch-mont.png]'),
+        'arch-sunset.png': file('arch-sunset.png', '[image: arch-sunset.png]'),
       }),
-      '.config': dir('.config', {
-        hypr: dir('hypr', {
-          'hyprland.conf': file('hyprland.conf', `# Hyprland Configuration
-monitor=,preferred,auto,1
-
-general {
-    gaps_in = 3
-    gaps_out = 6
-    border_size = 2
-    col.active_border = rgb(1793D1) rgb(89b4fa) 45deg
-    col.inactive_border = rgb(45475a)
-    layout = dwindle
-}
-
-decoration {
-    rounding = 4
-    blur {
-        enabled = true
-        size = 3
-        passes = 1
-    }
-    drop_shadow = true
-    shadow_range = 4
-}
-
-animations {
-    enabled = true
-    bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-    animation = windows, 1, 7, myBezier
-    animation = windowsOut, 1, 7, default, popin 80%
-    animation = fade, 1, 7, default
-    animation = workspaces, 1, 6, default
-}
-
-input {
-    kb_layout = us
-    follow_mouse = 1
-    sensitivity = 0
-}
-
-dwindle {
-    pseudotile = true
-    preserve_split = true
-}
-
-$mod = ALT
-
-bind = $mod, Return, exec, alacritty
-bind = $mod, D, exec, rofi -show drun
-bind = $mod, Q, killactive
-bind = $mod SHIFT, Q, exit
-bind = $mod, Space, togglefloating
-bind = $mod, F, fullscreen
-
-bind = $mod, H, movefocus, l
-bind = $mod, J, movefocus, d
-bind = $mod, K, movefocus, u
-bind = $mod, L, movefocus, r
-
-bind = $mod, 1, workspace, 1
-bind = $mod, 2, workspace, 2
-bind = $mod, 3, workspace, 3
-bind = $mod, 4, workspace, 4
-bind = $mod, 5, workspace, 5
-`),
-        }),
-        alacritty: dir('alacritty', {
-          'alacritty.toml': file('alacritty.toml', `[font]
-normal.family = "JetBrains Mono"
-size = 11.0
-
-[colors.primary]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-
-[colors.normal]
-black = "#45475a"
-red = "#f38ba8"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-blue = "#89b4fa"
-magenta = "#cba6f7"
-cyan = "#89dceb"
-white = "#bac2de"
-`),
-        }),
-        waybar: dir('waybar', {
-          'config.jsonc': file('config.jsonc', `{
-    "layer": "top",
-    "position": "top",
-    "height": 32,
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "pulseaudio", "battery", "clock"]
-}`),
-        }),
-      }),
-      '.bashrc': file('.bashrc', `# ~/.bashrc
-export PS1="[\\u@\\h \\W]\\$ "
-alias ls="ls --color=auto"
-alias ll="ls -la"
-alias grep="grep --color=auto"
-alias vim="nvim"
-`),
+      Misc: dir('Misc', {}),
     }),
   }),
   etc: dir('etc', {

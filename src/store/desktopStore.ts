@@ -31,7 +31,7 @@ export const useDesktopStore = create<DesktopState>()(
       phase: 'boot',
       activeWorkspaceId: 1,
       themeId: 'catppuccin-mocha',
-      wallpaper: '/wallpapers/default.png',
+      wallpaper: '/wallpapers/arch-sunset.png',
       rofiOpen: false,
       bootCompleted: false,
       bootFontSize: 24,

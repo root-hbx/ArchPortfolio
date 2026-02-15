@@ -23,11 +23,6 @@ export const apps: AppDefinition[] = [
     icon: 'globe',
   },
   {
-    id: 'about',
-    title: 'About',
-    icon: 'user',
-  },
-  {
     id: 'settings',
     title: 'Settings',
     icon: 'settings',
