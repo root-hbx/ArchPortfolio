@@ -18,6 +18,7 @@ const wallpaperFiles: VFile[] = [
   { name: 'arch-minimal.svg', type: 'image', src: '/wallpapers/arch-minimal.svg' },
   { name: 'arch-blue.png', type: 'image', src: '/wallpapers/arch-blue.png' },
   { name: 'arch-mont.png', type: 'image', src: '/wallpapers/arch-mont.png' },
+  { name: 'arch-sunset.png', type: 'image', src: '/wallpapers/arch-sunset.png' },
 ]
 
 const homeFolders: VFile[] = [
@@ -266,11 +267,10 @@ export default function FileManager({ windowId: _windowId }: FileManagerProps) {
             <button
               key={item.path}
               onClick={() => { setCurrentPath(item.path); setSelectedFile(null) }}
-              className={`w-full flex items-center gap-2 px-3 py-1.5 text-left text-xs transition-colors ${
-                currentPath === item.path
-                  ? 'bg-ctp-surface0 text-ctp-text font-medium'
-                  : 'text-ctp-subtext0 hover:bg-ctp-surface0/50 hover:text-ctp-text'
-              }`}
+              className={`w-full flex items-center gap-2 px-3 py-1.5 text-left text-xs transition-colors ${currentPath === item.path
+                ? 'bg-ctp-surface0 text-ctp-text font-medium'
+                : 'text-ctp-subtext0 hover:bg-ctp-surface0/50 hover:text-ctp-text'
+                }`}
             >
               {item.icon}
               {item.label}
@@ -290,11 +290,10 @@ export default function FileManager({ windowId: _windowId }: FileManagerProps) {
               {entries.map((item) => (
                 <button
                   key={item.name}
-                  className={`flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors ${
-                    selectedFile === item.name
-                      ? 'bg-arch-blue/20'
-                      : 'hover:bg-ctp-surface0'
-                  }`}
+                  className={`flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors ${selectedFile === item.name
+                    ? 'bg-arch-blue/20'
+                    : 'hover:bg-ctp-surface0'
+                    }`}
                   onClick={() => setSelectedFile(item.name)}
                   onDoubleClick={() => navigate(item)}
                 >

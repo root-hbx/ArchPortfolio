@@ -74,7 +74,7 @@ function Prompt({ cwd }: { cwd: string }) {
   const displayCwd = cwd.replace('/home/boxuan', '~')
   return (
     <span>
-      <span className="text-ctp-green font-bold">[boxuan@archlinux</span>
+      <span className="text-ctp-green font-bold">[bxhu@archlinux</span>
       <span className="text-ctp-blue font-bold"> {displayCwd}</span>
       <span className="text-ctp-green font-bold">]</span>
       <span className="text-ctp-text">$ </span>

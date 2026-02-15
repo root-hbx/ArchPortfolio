@@ -47,8 +47,8 @@ export default function TilingLayout({ workspaceId }: TilingLayoutProps) {
 
   if (!workspace || !workspace.tree) {
     return (
-      <div ref={containerRef} className="w-full h-full flex items-center justify-center">
-        <div className="text-center text-ctp-overlay0 text-sm">
+      <div ref={containerRef} className="w-full h-full relative">
+        <div className="absolute bottom-4 left-4 text-ctp-overlay0 text-sm">
           <p>Press <kbd className="px-1.5 py-0.5 bg-ctp-surface0 rounded text-ctp-text text-xs">Ctrl+Enter</kbd> to open a terminal</p>
           <p className="mt-1">or click an icon in the dock below</p>
         </div>

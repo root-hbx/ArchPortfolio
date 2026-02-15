@@ -19,29 +19,6 @@ export const filesystem: FSNode = dir('/', {
       Resumes: dir('Resumes', {
         'resume.md': file('resume.md', `# Boxuan Hu
 
-## Education
-- **B.Sc. in Computer Science** - Xi'an Jiaotong University (2022-2026)
-  - GPA: Top 5%, Outstanding Student Scholarship
-- **Visiting Student** - National University of Singapore (2024)
-  - NUS SoC Bronze Medal
-- **Visiting Student** - UC Berkeley (2024)
-  - Sky Computing Lab
-
-## Research Interests
-Computer systems and networks
-
-## Experience
-- **Research Assistant** - ANTS Group, Xi'an Jiaotong University
-  - Advisor: Prof. Yuedong Xu
-  - Focus: Network systems, distributed computing
-- **Research Assistant** - Sky Computing Lab, UC Berkeley
-  - Focus: Cloud computing, distributed systems
-
-## Skills
-- Languages: Python, C/C++, Rust, Go, TypeScript
-- Systems: Linux, Docker, Kubernetes
-- Research: Paper writing, experiment design
-
 ## Contact
 - GitHub: github.com/root-hbx
 - Email: bxhu2004@gmail.com
@@ -49,24 +26,10 @@ Computer systems and networks
 `),
         'research.md': file('research.md', `# Research
 
-## Publications & Projects
-
-### Network Systems
-- Research on distributed systems and network optimization
-- Focus on cloud computing infrastructure
-
-### Sky Computing Lab (UC Berkeley)
-- Worked on next-generation cloud computing platforms
-- Studied resource management and scheduling
-
-### ANTS Group (XJTU)
-- Network measurement and analysis
-- System performance optimization
-
-## Academic Profiles
-- OpenReview: openreview.net
-- ResearchGate: researchgate.net
-- ORCID: orcid.org
+## Contact
+- GitHub: github.com/root-hbx
+- Email: bxhu2004@gmail.com
+- Website: bxhu2004.com
 `),
       }),
       Pictures: dir('Pictures', {

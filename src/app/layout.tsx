@@ -8,7 +8,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Boxuan Hu | Arch Linux Desktop',
+  title: 'Boxuan Hu',
   description: 'Arch Linux + Hyprland desktop simulation - Personal homepage of Boxuan Hu',
 }
 

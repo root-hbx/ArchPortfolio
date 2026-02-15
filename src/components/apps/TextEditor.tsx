@@ -17,8 +17,9 @@ This is a simulated Neovim text editor.
 - Content is read-only in this simulation
 
 ## About Boxuan Hu
-Computer Science undergraduate at Xi'an Jiaotong University.
-Research interests in computer systems and networks.
+PhD student at Tsinghua University.
+Prev undergraduate at Xi'an Jiaotong University.
+Research interests: computer systems and networks.
 
 Visit: https://bxhu2004.com
 GitHub: https://github.com/root-hbx
@@ -55,11 +56,10 @@ export default function TextEditor({ windowId, initialContent, filename }: TextE
 
       {/* Status line */}
       <div className="h-6 bg-ctp-mantle border-t border-ctp-surface0 flex items-center px-2 text-xs shrink-0">
-        <span className={`px-2 py-0.5 rounded-sm font-bold mr-2 ${
-          mode === 'NORMAL' ? 'bg-arch-blue text-ctp-crust' :
+        <span className={`px-2 py-0.5 rounded-sm font-bold mr-2 ${mode === 'NORMAL' ? 'bg-arch-blue text-ctp-crust' :
           mode === 'INSERT' ? 'bg-ctp-green text-ctp-crust' :
-          'bg-ctp-mauve text-ctp-crust'
-        }`}>
+            'bg-ctp-mauve text-ctp-crust'
+          }`}>
           -- {mode} --
         </span>
         <span className="text-ctp-subtext0">{fname}</span>

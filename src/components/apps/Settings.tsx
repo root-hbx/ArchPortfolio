@@ -11,6 +11,7 @@ const wallpapers: Record<string, string> = {
   'Arch Minimal': '/wallpapers/arch-minimal.svg',
   'Arch Blue': '/wallpapers/arch-blue.png',
   'Arch Mont': '/wallpapers/arch-mont.png',
+  'Arch Sunset': '/wallpapers/arch-sunset.png',
 }
 
 const shortcuts = [

@@ -2,14 +2,22 @@
 
 A personal portfolio website simulating an **Arch Linux + Hyprland** tiling window manager desktop environment, built with Next.js and React.
 
-**Live Demo:** [https://root-hbx.github.io/archlinux-web](https://root-hbx.github.io/archlinux-web)
-
 [中文文档](./README-CN.md)
 
-![Desktop Screenshot](./public/wallpapers/default.png)
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./public/assets/boot-demo.png" alt="Desktop Screenshot" width="100%">
+    </td>
+    <td width="50%">
+      <img src="./public/assets/wallpaper-demo.png" alt="Boot Screenshot" width="100%">
+    </td>
+  </tr>
+</table>
 
 > [!IMPORTANT]
-> **This repository is currently under heavy construction.** >
+> **This repository is currently under heavy construction.** 
+>
 > We warmly welcome your suggestions and invite you to join our list of contributors!
 
 ## Tech Stack
@@ -25,6 +33,7 @@ A personal portfolio website simulating an **Arch Linux + Hyprland** tiling wind
 - **Boot Sequence** — Systemd-style boot animation with TTY login prompt
 - **Tiling Window Manager** — Binary tree layout with draggable split handles and 6px gaps
 - **Terminal Emulator** — Functional shell with `ls`, `cd`, `cat`, `neofetch`, `pacman` and more
+- **File Manager** — Folder navigation and file operations
 - **Chrome Browser** — Embedded iframe browser with URL bar and navigation
 - **App Launcher** — Rofi-style overlay to search and launch apps
 - **Multiple Workspaces** — Switch between 5 independent workspaces
