@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useCallback, useEffect } from 'react'
+import { useWmStore } from '@/store/wmStore'
+import { useDesktopStore } from '@/store/desktopStore'
 
 interface BrowserProps {
   windowId: string
@@ -18,6 +20,8 @@ function ensureUrl(input: string): string {
 }
 
 export default function Browser({ windowId }: BrowserProps) {
+  const closeWindow = useWmStore((s) => s.closeWindow)
+  const activeWorkspaceId = useDesktopStore((s) => s.activeWorkspaceId)
   const [displayUrl, setDisplayUrl] = useState(GOOGLE_HOME)
   const [iframeSrc, setIframeSrc] = useState(GOOGLE_HOME)
 
@@ -30,7 +34,7 @@ export default function Browser({ windowId }: BrowserProps) {
         setIframeSrc(savedUrl)
         setDisplayUrl(savedDisplay || savedUrl)
       }
-    } catch {}
+    } catch { }
   }, [])
 
   const navigate = useCallback((input: string) => {
@@ -40,7 +44,7 @@ export default function Browser({ windowId }: BrowserProps) {
     try {
       localStorage.setItem('chrome-url', url)
       localStorage.setItem('chrome-display-url', input)
-    } catch {}
+    } catch { }
   }, [])
 
   const goHome = useCallback(() => {
@@ -49,7 +53,7 @@ export default function Browser({ windowId }: BrowserProps) {
     try {
       localStorage.setItem('chrome-url', GOOGLE_HOME)
       localStorage.setItem('chrome-display-url', GOOGLE_HOME)
-    } catch {}
+    } catch { }
   }, [])
 
   const refresh = useCallback(() => {
@@ -63,6 +67,12 @@ export default function Browser({ windowId }: BrowserProps) {
     <div className="w-full h-full bg-ctp-base text-ctp-text flex flex-col overflow-hidden">
       {/* Chrome toolbar */}
       <div className="shrink-0 flex items-center gap-1 px-2 h-10 bg-ctp-mantle border-b border-ctp-surface0">
+        {/* Close button */}
+        <button
+          onClick={() => closeWindow(windowId, activeWorkspaceId)}
+          className="w-3.5 h-3.5 rounded-full bg-[#ed6a5e] hover:brightness-110 transition-all shrink-0"
+          title="Close (Ctrl+Q)"
+        />
         {/* Navigation buttons */}
         <button
           onClick={goHome}

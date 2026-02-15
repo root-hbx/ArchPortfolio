@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useWmStore } from '@/store/wmStore'
+import { useDesktopStore } from '@/store/desktopStore'
 
 /* ── virtual file system (only what we need) ───────────────────────── */
 
@@ -89,7 +91,9 @@ interface FileManagerProps {
   windowId: string
 }
 
-export default function FileManager({ windowId: _windowId }: FileManagerProps) {
+export default function FileManager({ windowId }: FileManagerProps) {
+  const closeWindow = useWmStore((s) => s.closeWindow)
+  const activeWorkspaceId = useDesktopStore((s) => s.activeWorkspaceId)
   const [currentPath, setCurrentPath] = useState('Home')
   const [selectedFile, setSelectedFile] = useState<string | null>(null)
   const [previewSrc, setPreviewSrc] = useState<string | null>(null)
@@ -161,6 +165,11 @@ export default function FileManager({ windowId: _windowId }: FileManagerProps) {
       <div className="w-full h-full bg-ctp-base text-ctp-text flex flex-col overflow-hidden">
         {/* header */}
         <div className="h-10 bg-ctp-mantle border-b border-ctp-surface0 flex items-center px-3 gap-3 shrink-0">
+          <button
+            onClick={() => closeWindow(windowId, activeWorkspaceId)}
+            className="w-3.5 h-3.5 rounded-full bg-[#ed6a5e] hover:brightness-110 transition-all shrink-0"
+            title="Close (Ctrl+Q)"
+          />
           <button onClick={() => setPreviewSrc(null)} className="text-ctp-overlay1 hover:text-ctp-text text-sm flex items-center gap-1">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
@@ -185,6 +194,11 @@ export default function FileManager({ windowId: _windowId }: FileManagerProps) {
       <div className="w-full h-full bg-ctp-base text-ctp-text flex flex-col overflow-hidden text-[0.8125rem]">
         {/* header */}
         <div className="h-8 bg-ctp-mantle border-b border-ctp-surface0 flex items-center px-3 gap-3 shrink-0">
+          <button
+            onClick={() => closeWindow(windowId, activeWorkspaceId)}
+            className="w-3.5 h-3.5 rounded-full bg-[#ed6a5e] hover:brightness-110 transition-all shrink-0"
+            title="Close (Ctrl+Q)"
+          />
           <button onClick={() => setMdPreview(null)} className="text-ctp-overlay1 hover:text-ctp-text text-sm flex items-center gap-1">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
@@ -227,6 +241,12 @@ export default function FileManager({ windowId: _windowId }: FileManagerProps) {
     <div className="w-full h-full bg-ctp-base text-ctp-text flex flex-col overflow-hidden text-sm">
       {/* ── header bar ─────────────────────────────────────────── */}
       <div className="h-10 bg-ctp-mantle border-b border-ctp-surface0 flex items-center px-3 gap-2 shrink-0">
+        {/* Close button */}
+        <button
+          onClick={() => closeWindow(windowId, activeWorkspaceId)}
+          className="w-3.5 h-3.5 rounded-full bg-[#ed6a5e] hover:brightness-110 transition-all shrink-0"
+          title="Close (Ctrl+Q)"
+        />
         {/* back / forward */}
         <button
           onClick={goBack}
