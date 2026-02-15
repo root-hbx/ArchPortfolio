@@ -7,10 +7,18 @@ A personal portfolio website simulating an **Arch Linux + Hyprland** tiling wind
 <table>
   <tr>
     <td width="50%">
-      <img src="./public/assets/boot-demo.png" alt="Desktop Screenshot" width="100%">
+      <img src="./public/assets/boot-demo.png" alt="Boot Demo" width="100%">
     </td>
     <td width="50%">
-      <img src="./public/assets/wallpaper-demo.png" alt="Boot Screenshot" width="100%">
+      <img src="./public/assets/wallpaper-demo.png" alt="Wallpaper Demo" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="./public/assets/app-demo.png" alt="App Demo" width="100%">
+    </td>
+    <td width="50%">
+      <img src="./public/assets/set-demo.png" alt="Settings Demo" width="100%">
     </td>
   </tr>
 </table>
